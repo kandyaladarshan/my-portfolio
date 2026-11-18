@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gaming-dark: #0a0e1a;
+  --color-gaming-navy: #0f1629;
+  --color-gaming-blue: #1a2342;
+  --color-gaming-panel: #141b2d;
+  --color-gaming-card: #1c2541;
+  --color-gaming-border: #2a3a5c;
+
+  --color-neon-blue: #00d4ff;
+  --color-neon-cyan: #00fff0;
+  --color-neon-purple: #7c3aed;
+  --color-neon-pink: #ff006e;
+  --color-neon-green: #39ff14;
+
+  --font-sans: 'Rajdhani', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-display: 'Orbitron', 'Rajdhani', sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-gaming-dark);
+  color: #e0e6f0;
+}
+
+/* Animated grid background */
+.gaming-grid {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Neon glow effects */
+.neon-glow {
+  text-shadow:
+    0 0 7px rgba(0, 212, 255, 0.6),
+    0 0 20px rgba(0, 212, 255, 0.4),
+    0 0 40px rgba(0, 212, 255, 0.2);
+}
+
+.neon-glow-purple {
+  text-shadow:
+    0 0 7px rgba(124, 58, 237, 0.6),
+    0 0 20px rgba(124, 58, 237, 0.4),
+    0 0 40px rgba(124, 58, 237, 0.2);
+}
+
+.neon-box {
+  box-shadow:
+    0 0 5px rgba(0, 212, 255, 0.3),
+    0 0 15px rgba(0, 212, 255, 0.1),
+    inset 0 0 15px rgba(0, 212, 255, 0.05);
+}
+
+.neon-box:hover {
+  box-shadow:
+    0 0 10px rgba(0, 212, 255, 0.5),
+    0 0 25px rgba(0, 212, 255, 0.2),
+    inset 0 0 20px rgba(0, 212, 255, 0.08);
+}
+
+/* Floating code animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(10px) rotate(-1deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--color-neon-blue); }
+}
+
+@keyframes scan-line {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-animation-reverse {
+  animation: float-reverse 5s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Gaming card hover effect */
+.gaming-card {
+  background: linear-gradient(135deg, var(--color-gaming-card) 0%, var(--color-gaming-panel) 100%);
+  border: 1px solid var(--color-gaming-border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.gaming-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-neon-blue), transparent);
+  transition: left 0.5s ease;
+}
+
+.gaming-card:hover::before {
+  left: 100%;
+}
+
+.gaming-card:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(0, 212, 255, 0.1);
+}
+
+/* Code block decoration */
+.code-decoration {
+  background: var(--color-gaming-panel);
+  border: 1px solid var(--color-gaming-border);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.6;
+  color: rgba(0, 212, 255, 0.5);
+  padding: 12px;
+  overflow: hidden;
+}
+
+/* Photo frame glow */
+.photo-frame {
+  position: relative;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--color-neon-blue), var(--color-neon-purple), var(--color-neon-pink));
+}
+
+.photo-frame::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-neon-blue), var(--color-neon-purple), var(--color-neon-pink));
+  filter: blur(12px);
+  opacity: 0.4;
+  z-index: -1;
+}
+
+/* Skill tag */
+.skill-tag {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  color: var(--color-neon-blue);
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.15);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-gaming-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gaming-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neon-blue);
+}
+
+/* Scan line effect overlay */
+.scan-line::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 212, 255, 0.05), transparent);
+  animation: scan-line 4s linear infinite;
+  pointer-events: none;
+}
